@@ -19,4 +19,33 @@ public class InventoryItem {
     }
 
     // Getters and setters...
+
+    public LocalDate getDateEntered() {
+        return dateEntered;
+    }
+
+    public StockLabel getStockLabel() {
+        return stockLabel;
+    }
+
+    public String getBrand() {
+        return brand;
+    }
+
+    public String getEngineNumber() {
+        return engineNumber;
+    }
+
+    public Status getStatus() {
+        return status;
+    }
+
+    @Override
+    public String toString() {
+        return "Date Entered: " + dateEntered +
+                "\nStock: " + stockLabel +
+                "\nBrand: " + brand +
+                "\nEngine Number: " + engineNumber +
+                "\nStatus: " + status;
+    }
 }

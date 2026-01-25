@@ -18,4 +18,8 @@ public class Node {
     public Node getNext() {
         return this.next;
     }
+
+    public InventoryItem getData() {
+        return this.data;
+    }
 }

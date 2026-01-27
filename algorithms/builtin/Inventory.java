@@ -1,4 +1,5 @@
 package algorithms.builtin;
+
 import algorithms.InventoryItem;
 
 import java.util.LinkedList;
@@ -36,7 +37,7 @@ public class Inventory {
         //Sort the sortedList
         sortedList.sort((item1, item2) ->
                 //Use brand as a comparison
-            item1.getBrand().compareToIgnoreCase(item2.getBrand())
+                item1.getBrand().compareToIgnoreCase(item2.getBrand())
         );
 
         return sortedList;
@@ -44,47 +45,49 @@ public class Inventory {
 
     //Search inventory
     public InventoryItem searchInventory(String criteriaField, String searchValue) {
+        //Simplify criteria field case
         String field = criteriaField.toLowerCase();
 
+        //Search all the item on the inventoryList
         for (InventoryItem item : inventoryList) {
-            switch (field) {
-                case "date":
-                    if (item.getDateEntered().toString().equals(searchValue)) {
-                        return item;
-                    }
-                    break;
+            //If the criteriaField is "date"
+            if (field.equals("date") &&
+                    //And if the item date string is equals to the searchValue
+                    item.getDateEntered().toString().equals(searchValue)) {
+                return item;
 
-                case "stocklabel":
-                    if (item.getStockLabel().toString().equalsIgnoreCase(searchValue)) {
-                        return item;
-                    }
-                    break;
+            }
+            //Else if the criteriaField is "stock label"
+            else if (field.equals("stock label") &&
+                    //And if the item StockLabel[NEW, OLD] string is equals to searchValue
+                    item.getStockLabel().toString().equalsIgnoreCase(searchValue)) {
+                return item;
 
-                case "brand":
-                    if (item.getBrand().equalsIgnoreCase(searchValue)) {
-                        return item;
-                    }
-                    break;
+            }
+            //Else if the criteriaField is "brand"
+            else if (field.equals("brand") &&
+                    //And if the item brand is same with the searchValue ignoring the capitalization
+                    item.getBrand().equalsIgnoreCase(searchValue)) {
+                return item;
 
-                case "enginenumber":
-                    if (item.getEngineNumber().equalsIgnoreCase(searchValue)) {
-                        return item;
-                    }
-                    break;
+            }
+            //Else if the criteriaField is "engine number"
+            else if (field.equals("engine number") &&
+                    //And if the item engine number is same with the searchValue ignoring the capitalization
+                    item.getEngineNumber().equalsIgnoreCase(searchValue)) {
+                return item;
 
-                case "status":
-                    if (item.getStatus().toString().equalsIgnoreCase(searchValue)) {
-                        return item;
-                    }
-                    break;
-
-                default:
-                    // invalid field, skip
-                    break;
+            }
+            //Else if the criteriaField is "status"
+            else if (field.equals("status") &&
+                    //And if the item STATUS[ON_HAND, SOLD] string is equals to searchValue
+                    item.getStatus().toString().equalsIgnoreCase(searchValue)) {
+                return item;
             }
         }
 
-        //Not found
+        //Return nothing if match not found
         return null;
     }
+
 }

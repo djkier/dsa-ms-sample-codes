@@ -1,6 +1,6 @@
 package algorithms;
 
-import datastructure.ds3_1.InventoryItem;
+import algorithms.InventoryItem;
 
 public class Node {
     private InventoryItem data;

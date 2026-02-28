@@ -43,6 +43,14 @@ public class InventoryItem {
         return status;
     }
 
+    public void setStockLabel(StockLabel stockLabel) {
+        this.stockLabel = stockLabel;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
+    }
+
     @Override
     public String toString() {
         return "Date Entered: " + dateEntered +
